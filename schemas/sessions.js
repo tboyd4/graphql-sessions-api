@@ -16,6 +16,14 @@ module.exports = typeDefs = gql`
       level: String
     ): [Session]
     sessionById(id: ID): Session
+    speakers: [Speaker]
+    speakerById(id: ID): Speaker
+  }
+  type Speaker {
+    id: ID!
+    bio: String
+    name: String!
+    sessions: [Session]
   }
   type Session {
     id: ID!
@@ -28,5 +36,6 @@ module.exports = typeDefs = gql`
     format: String
     track: String @deprecated(reason: "because I said")
     level: String
+    speakers: [Speaker]
   }
 `;

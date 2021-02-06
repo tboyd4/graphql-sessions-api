@@ -2,6 +2,7 @@
 const { ApolloServer } = require("apollo-server");
 // Imports our class that handles our session data, and will be what our resolver calls on
 const SessionAPI = require("./datsasources/sessions");
+const SpeakerAPI = require("./datsasources/speakers");
 // Imports Schema and Resolvers
 const typeDefs = require("./schemas/sessions");
 const resolvers = require("./resolvers/sessions");
@@ -9,6 +10,7 @@ const resolvers = require("./resolvers/sessions");
 // Creates a new instance of our SessionAPI class
 const dataSources = () => ({
   sessionAPI: new SessionAPI(),
+  speakerAPI: new SpeakerAPI(),
 });
 
 // Configures our sever, and passes in schemas, resolvers, and datasources
